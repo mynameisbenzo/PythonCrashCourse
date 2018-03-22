@@ -71,5 +71,4 @@ glossary = [
 	},
 ]
 for word in glossary:
-	print(word['word'] + ':\n')
-	print('\t' + word['definition'])
+	print(word['word'] + ':\n\t' + word['definition'])
