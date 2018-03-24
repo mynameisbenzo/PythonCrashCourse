@@ -1,3 +1,11 @@
+###############################################################
+'''
+	Modules that may needed for classes below
+'''
+
+from random import randint
+
+###############################################################
 '''
 	Creates an instance of a restaurant
 	alongside relevant information
@@ -261,5 +269,20 @@ class Battery():
 	# upgrades the size of the battery to 85
 	def upgrade_battery(self):
 		self.battery_size = 85
+			
+###############################################################
+			
+'''
+	Creating a Die class that can have
+	different amounts of sides
+'''
+class Die():
+	# initializer
+	def __init__(self, sides):
+		self.sides = sides
+		
+	# roll the dice
+	def roll_die(self):
+		print(str(randint(1,self.sides)))
 			
 ###############################################################
