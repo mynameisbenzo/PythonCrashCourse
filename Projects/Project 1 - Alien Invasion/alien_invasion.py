@@ -6,6 +6,7 @@ import sys
 import pygame
 from settings import Settings
 from ship import Ship
+import game_functions as gf
 
 def run_game():
 	# initialize game and create screen object
@@ -19,21 +20,9 @@ def run_game():
 	# create a ship
 	ship = Ship(screen)
 	
-	# set background color
-	bg_color = (230,230,230)
-	
 	# start the game loop
 	while True:
-		# look for keyboard and mouse events
-		for event in pygame.event.get():
-			if event.type == pygame.QUIT:
-				sys.exit()
-				
-		# redraw screen
-		screen.fill(alien_settings.bg_color)
-		ship.blitme()
-		
-		# display screen
-		pygame.display.flip()
+		gf.check_events()
+		gf.update_screen(alien_settings, screen, ship)
 
 run_game()
