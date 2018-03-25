@@ -12,7 +12,7 @@ class Settings():
 		'''
 			ship settings
 		'''
-		self.ship_speed_factor = 0.25
+		self.ship_speed_factor = 1
 		
 		'''
 			bullet settings
