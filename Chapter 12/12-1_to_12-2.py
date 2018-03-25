@@ -25,7 +25,8 @@ def run_game():
 	myChar = MyCharacter(screen)
 	
 	while True:
-		gf.check_events()
+		gf.check_events(myChar)
+		myChar.update()
 		gf.update_screen(mySettings, screen, myChar)
 		
 run_game()
