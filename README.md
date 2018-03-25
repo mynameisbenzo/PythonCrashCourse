@@ -1,9 +1,8 @@
-# PythonCrashCourse
+# PythonCrashCourse 
+
 ## NOTE
-
+###### I'm using Python 3.6 throughout these exercises.
 ## Part 1: The Basics
-
-##### I'm using Python 3.6 throughout these exercises.
 ### Chapter 2
 ##### Variables and Simple Data Types
 ### Chapter 3
