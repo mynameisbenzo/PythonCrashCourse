@@ -23,3 +23,11 @@
 ##### Files and Exceptions
 ### Chapter 11
 ##### Testing Your Code
+## Part 2: Projects
+### Alien Invader
+#### Chapter 12
+##### A Ship That Fires Bullets
+#### Chapter 13
+##### Aliens!
+#### Chapter 14
+##### Scoring
