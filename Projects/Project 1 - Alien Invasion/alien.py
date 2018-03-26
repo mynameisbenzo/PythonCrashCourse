@@ -25,3 +25,17 @@ class Alien(Sprite):
 	# draw alien
 	def blitme(self):
 		self.screen.blit(self.image, self.rect)
+		
+	# check if an alien is at the edge of the screen
+	def check_edges(self):
+		screen_rect = self.screen.get_rect()
+		if self.rect.right >= screen_rect.right:
+			return True
+		elif self.rect.left <= 0:
+			return True
+	
+	# move the aliens to the right
+	def update(self):
+		self.x += (self.settings.alien_speed_factor *
+					self.settings.fleet_direction)
+		self.rect.x = self.x 
