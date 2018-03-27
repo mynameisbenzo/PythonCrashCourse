@@ -25,12 +25,20 @@ def keyupEvents(event, catcher):
 	elif event.key == pygame.K_LEFT:
 		catcher.left = False
 		
-def update_apple(settings, apple, catcher):
+def update_apple(settings, stats, apple, catcher):
 	if not apple.check_edges():
-		apple.toTheTop()
+		bottomCollision(stats, apple)
 	else:
 		appleDrop(settings, apple)	
 	checkCollisions(apple, catcher)
+	
+def bottomCollision(stats, apple):
+	stats.livesLeft -= 1
+	if stats.livesLeft == 0:
+		stats.game_active = False
+		print("Game Over!")
+	else:
+		apple.toTheTop()
 	
 def checkCollisions(apple, catcher):
 	if pygame.sprite.collide_rect(apple, catcher):

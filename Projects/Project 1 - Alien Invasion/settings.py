@@ -13,6 +13,7 @@ class Settings():
 			ship settings
 		'''
 		self.ship_speed_factor = 1
+		self.ship_limit = 3
 		
 		'''
 			bullet settings

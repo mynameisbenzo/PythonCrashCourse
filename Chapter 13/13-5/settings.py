@@ -6,6 +6,8 @@ class Settings():
 		
 		self.catcherSpeed = 1
 		
+		self.lives_AMT = 3
+		
 		self.appleDropSpeed = 1
 		self.frameCount = 3
 		self.currentFrame = 0
