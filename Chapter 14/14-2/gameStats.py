@@ -7,4 +7,4 @@ class GameStats():
 		self.targetHit = False
 		
 	def reset_stats(self):
-		self.bulletsLeft = self.settings.maxBullets
+		self.bulletsLeft = self.settings.maxBullets	

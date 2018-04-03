@@ -16,9 +16,21 @@ class Bullet(Sprite):
 		self.color = settings.bulletColor
 		self.speed = settings.bulletSpeed
 		
+		self.onScreen = True
+		
 	def update(self):
 		self.x += self.speed
 		self.rect.x = self.x
 		
 	def drawBullet(self):
 		pygame.draw.rect(self.screen, self.color, self.rect)
+		
+	def edgeHit(self):
+		screenRect = self.screen.get_rect()
+		if not self.onScreen:
+			return False
+		if self.rect.right > screenRect.right:
+			self.onScreen = False
+			return True
+		else:
+			return False

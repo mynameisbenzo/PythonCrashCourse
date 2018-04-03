@@ -15,7 +15,7 @@ def check_events(settings, screen, ship, bullets,
 			keyUp(event, ship)
 		elif event.type == pygame.MOUSEBUTTONDOWN:
 			mX, mY = pygame.mouse.get_pos()
-			check_play_button(ship, bullets,
+			check_play_button(settings, ship, bullets,
 					stats, play, mX, mY)
 			
 def keyUp(event, ship):
@@ -34,7 +34,7 @@ def keyDown(event, settings, screen, ship, bullets,
 		fire_bullet(settings, screen, ship, bullets)
 	elif event.key == pygame.K_p:
 		if not stats.game_active:
-			start_game(stats, bullets, ship)
+			start_game(settings, stats, bullets, ship)
 	elif event.key == pygame.K_q:
 		sys.exit()
 			
@@ -43,13 +43,14 @@ def fire_bullet(settings, screen, ship, bullets):
 		newBullet = Bullet(settings, screen, ship)
 		bullets.add(newBullet)
 			
-def check_play_button(ship, bullets,
+def check_play_button(settings, ship, bullets,
 					stats, play, mX, mY):
 	button_clicked = play.rect.collidepoint(mX, mY)
 	if button_clicked and not stats.game_active:
-		start_game(stats, bullets, ship)
+		start_game(settings, stats, bullets, ship)
 					
-def start_game(stats, bullets, ship):
+def start_game(settings, stats, bullets, ship):
+	settings.initSettings()
 	pygame.mouse.set_visible(False)
 	
 	stats.reset_stats()
@@ -87,10 +88,10 @@ def update_screen(settings, screen, stats, ship,
 def update_bullets(settings, screen, ship, target,
 					bullets, stats):
 	bullets.update()
-	
 	screenRect = screen.get_rect()
-	
-	checkBulletTargetCollision(ship, target, bullets, stats)
+	checkBulletTargetCollision(settings, ship, target, bullets, stats)
+	if settings.allBulletsOffScreen:
+		stop_game(stats, bullets, ship)
 							
 def update_target(settings, stats, screen,
 				ship, target, bullets):
@@ -107,7 +108,14 @@ def checkTargetEdges(settings, screen, target):
 		settings.targetDirection *= -1
 		target.resetPosition()
 		
-def checkBulletTargetCollision(ship, target, bullets, stats):
+def checkBulletTargetCollision(settings, ship, target, bullets, stats):
 	if pygame.sprite.spritecollideany(target, 
 					bullets):
 		stop_game(stats, bullets, ship)
+	
+	for bullet in bullets.sprites():
+		if bullet.edgeHit():
+			settings.currentOffScreen += 1
+			if len(bullets) == 3:
+				settings.allBulletsOffScreen = True
+			settings.increaseSpeed()

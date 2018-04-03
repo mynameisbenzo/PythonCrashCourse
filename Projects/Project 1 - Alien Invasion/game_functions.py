@@ -29,6 +29,9 @@ def check_events(settings, screen, ship, bullets, aliens,
 # start the game
 def start_game(stats, aliens, bullets, settings, screen,
 					ship):
+	# reset game settings
+	settings.initialize_dynamic_settings()
+	
 	# hide the mouse
 	pygame.mouse.set_visible(False)
 	
@@ -128,6 +131,7 @@ def check_bullet_alien_collisions(settings, screen,
 	if len(aliens) == 0:
 		# destroy existing bullets and make new fleet
 		bullets.empty()
+		settings.increase_speed()
 		create_fleet(settings, screen, ship, aliens)
 		
 '''

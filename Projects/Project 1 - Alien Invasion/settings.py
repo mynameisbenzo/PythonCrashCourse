@@ -15,6 +15,14 @@ class Settings():
 		self.frameCount = 1
 		self.currentFrame = 0
 		
+		
+		self.speedup_scale = 1.1
+		self.initialize_dynamic_settings()
+		
+	'''
+		initialize settings that change throughout the game
+	'''
+	def initialize_dynamic_settings(self):
 		'''
 			ship settings
 		'''
@@ -36,5 +44,19 @@ class Settings():
 		self.alien_speed_factor = 1
 		self.fleet_drop_speed = 10
 		
-		# fleet direction: 1 = right, -1 = left
+		''' 
+			fleet direction: 1 = right, -1 = left
+		'''
 		self.fleet_direction = 1
+		
+		'''
+			how quickly the game speeds up
+		'''
+	
+	'''
+		increase speed settings
+	'''
+	def increase_speed(self):
+		self.ship_speed_factor *= self.speedup_scale
+		self.bullet_speed *= self.speedup_scale
+		self.alien_speed_factor *= self.speedup_scale
