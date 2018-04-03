@@ -7,7 +7,7 @@ class GameStats():
 		self.reset_stats()
 		
 		# state alien invasion in active state
-		self.game_active = True
+		self.game_active = False
 	
 	'''
 		initialize statistics that will
