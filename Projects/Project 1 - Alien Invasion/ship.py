@@ -3,10 +3,12 @@
 	in alien_invasion
 '''
 import pygame
+from pygame.sprite import Sprite
 
-class Ship():
+class Ship(Sprite):
 	# create ship and set position
 	def __init__(self, settings, screen):
+		super().__init__()
 		self.screen = screen
 		self.mySettings = settings
 		

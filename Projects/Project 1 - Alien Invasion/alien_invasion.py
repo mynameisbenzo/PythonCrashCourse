@@ -10,6 +10,8 @@ from ship import Ship
 from alien import Alien
 from game_stats import GameStats
 from button import Button
+from scoreboard import Scoreboard
+from soundboard import Soundboard
 import game_functions as gf
 
 def run_game():
@@ -27,6 +29,12 @@ def run_game():
 	# create an instance to store game statistics
 	stats = GameStats(alien_settings)
 	
+	# create instance of the scoreboard
+	sb = Scoreboard(alien_settings, screen, stats)
+	
+	# create soundboard
+	sounds = Soundboard()
+	
 	# create a ship
 	ship = Ship(alien_settings, screen)
 	
@@ -42,14 +50,14 @@ def run_game():
 	# start the game loop
 	while True:
 		gf.check_events(alien_settings, screen, ship, bullets,
-			aliens, stats, play_button)
+			aliens, stats, play_button, sb, sounds)
 		if stats.game_active:
 			ship.update()
 			gf.update_bullets(alien_settings, screen, ship,
-				aliens, bullets)
+				aliens, bullets, stats, sb, sounds)
 			gf.update_aliens(alien_settings, stats, screen, ship, 
-				aliens, bullets)
+				aliens, bullets, sb, sounds)
 		gf.update_screen(alien_settings, screen, stats,
-			ship, aliens, bullets, play_button)
+			ship, aliens, bullets, play_button, sb)
 
 run_game()
