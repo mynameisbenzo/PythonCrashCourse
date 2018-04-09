@@ -35,7 +35,7 @@ class RandomWalk():
 	'''
 		determine next step in walk and return it
 	'''
-	def get_step():
+	def get_step(self):
 		dir = choice([1,-1])
 		dis = choice(list(range(-4,10)))
 		return (dir * dis)
