@@ -5,20 +5,18 @@ from random_walk import RandomWalk
 #keep making new walks if the program is active
 while True:
 	# make a random walk and plot points
-	rw = RandomWalk(50000)
+	rw = RandomWalk()
 	rw.fill_walk()
 	
 	# set plotting window size
 	plt.figure(dpi=170, figsize=(10,6))
 
 	point_numbers = list(range(rw.num_points))
-	plt.scatter(rw.x_values, rw.y_values, c=point_numbers, 
-		cmap=plt.cm.Blues, edgecolor='none', s=1)
+	plt.plot(rw.x_values, rw.y_values)
 		
 	# emphasize first and last points
-	plt.scatter(0, 0, c='green', edgecolors='none', s=100)
-	plt.scatter(rw.x_values[-1], rw.y_values[-1], c='red',
-		edgecolors='none', s=100)
+	# plt.plot(0, 0, c='green')
+	# plt.plot(rw.x_values[-1], rw.y_values[-1], c='red')
 		
 	# remove the axis
 	plt.axes().get_xaxis().set_visible(False)
