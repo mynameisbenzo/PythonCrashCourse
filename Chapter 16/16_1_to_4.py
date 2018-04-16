@@ -47,6 +47,11 @@
 		Seattle rainfall vs the rainfall of somewhere really
 		dry.  I'll have to look that up.
 		
+		UPDATE: For this, I will be changing it to a comparison
+		between the two existing csv files (sitka and death valley)
+		instead of what I had hoped until the above problem is 
+		solved.
+		
 		NOTE: it seems that wunderground has moved away from
 		providing csv/comma-delimited files at the bottom of
 		each query so I will be working with the csv's provided
@@ -87,18 +92,21 @@ with open(filename_2) as f_2:
 	reader_2 = csv.reader(f_2)
 	header_row_2 = next(reader_2)
 	
-	dates_2, highs_2, lows_2 = [], [], []
+	# 16-
+	dates_2, highs_2, lows_2, rainfall_2 = [], [], [], []
 	for row_2 in reader_2:
 		try:
 			current_date_2 = datetime.strptime(row_2[0], "%Y-%m-%d")	
 			low_2 = int(row_2[3])
 			high_2 = int(row_2[1])
+			rain_2 = float(row_2[19])
 		except ValueError:
 			print(current_date_2, 'missing data')
 		else:
 			dates_2.append(current_date_2)
 			highs_2.append(high_2)
 			lows_2.append(low_2)
+			rainfall_2.append(rain_2)
 		
 	# plot data
 	fig = plt.figure(dpi=128, figsize=(10,6))
@@ -129,10 +137,17 @@ with open(filename_2) as f_2:
 	
 	fig = plt.figure(dpi=128, figsize=(10,6))
 	
+	# legend
+	blue_patch = mPatch.Patch(color='blue', label='Sitka Rainfall')
+	red_patch = mPatch.Patch(color='red', label='Death Valley Rainfall')
+	plt.legend(handles=[blue_patch, red_patch])
+	
 	# creating new plot for rainfall
 	plt.plot(dates, rainfall, c='blue', alpha=0.5)
+	# adding death valley for 16-4
+	plt.plot(dates_2, rainfall_2, c='red', alpha=0.5)
 	
-	plt.title("Rainfall for Sitka", fontsize=20)
+	plt.title("Rainfall - Sitka Vs Death Valley", fontsize=20)
 	plt.xlabel('', fontsize=16)
 	fig.autofmt_xdate()
 	plt.ylabel("Inches", fontsize=16)
