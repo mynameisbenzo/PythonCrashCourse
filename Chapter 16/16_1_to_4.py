@@ -40,6 +40,9 @@
 		favor of a new parameter to visualize: rainfall.  The
 		obvious go to here would be Seattle in my opinion.
 		
+		UPDATE: Will be using Sitka rainfall until above UPDATE
+		problem is addressed.
+		
 		Problem 4 Free reign on visualization.  My choice is 
 		Seattle rainfall vs the rainfall of somewhere really
 		dry.  I'll have to look that up.
@@ -64,18 +67,21 @@ with open(filename_1) as f:
 	reader = csv.reader(f)
 	header_row = next(reader)
 	
-	dates, highs, lows = [], [], []
+	# adding rainfall for 16-3
+	dates, highs, lows, rainfall = [], [], [], []
 	for row in reader:
 		try:
 			current_date = datetime.strptime(row[0], "%Y-%m-%d")	
 			low = int(row[3])
 			high = int(row[1])
+			rain = float(row[19])
 		except ValueError:
 			print(current_date, 'missing data')
 		else:
 			dates.append(current_date)
 			highs.append(high)
 			lows.append(low)
+			rainfall.append(rain)
 		
 with open(filename_2) as f_2:
 	reader_2 = csv.reader(f_2)
@@ -112,11 +118,25 @@ with open(filename_2) as f_2:
 	plt.fill_between(dates_2, highs_2, lows_2, facecolor='green', alpha=0.1)
 	
 	# format plot
-	plt.title("Daily high and low temperatures - 2014\n" + 
-		"Death Valley, CA", fontsize=20)
+	plt.title("Highs and Lows for Death Valley and Sitka", fontsize=20)
 	plt.xlabel('', fontsize=16)
 	fig.autofmt_xdate()
 	plt.ylabel("Temperature (F)", fontsize=16)
 	plt.tick_params(axis='both', which='major', labelsize=16)
 	
 	plt.show()
+	
+	
+	fig = plt.figure(dpi=128, figsize=(10,6))
+	
+	# creating new plot for rainfall
+	plt.plot(dates, rainfall, c='blue', alpha=0.5)
+	
+	plt.title("Rainfall for Sitka", fontsize=20)
+	plt.xlabel('', fontsize=16)
+	fig.autofmt_xdate()
+	plt.ylabel("Inches", fontsize=16)
+	plt.tick_params(axis='both', which='major', labelsize=16)
+	
+	plt.show()
+	
