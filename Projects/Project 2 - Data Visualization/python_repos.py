@@ -2,14 +2,21 @@ import requests
 import pygal
 from pygal.style import LightColorizedStyle as LCS, LightenStyle as LS
 
-# make an api call and store the response
-url = ("https://api.github.com/search/repositories?q=language:" +
-		"python&sort=stars")
-r = requests.get(url)
-print("Status code: ", r.status_code)
+def make_call():
+	# make an api call and store the response
+	url = ("https://api.github.com/search/repositories?q=language:" +
+			"python&sort=stars")
+	r = requests.get(url)
+	print("Status code: ", r.status_code)
+	return r
+	
+def make_call_with(s):
+	# make an api call with the given string
+	r = requests.get(s)
+	return r
 
 # store api response in a variable
-response_dict = r.json()
+response_dict = make_call().json()
 print("Total repositories: ", response_dict['total_count'])
 
 # explore information about the repositories
