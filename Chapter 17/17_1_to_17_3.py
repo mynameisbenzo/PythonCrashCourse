@@ -1,3 +1,23 @@
+'''
+	17-1: 
+		Github repo API call for a different language
+		
+		Resolved here.
+		
+	17-2:
+		Alter hn_submissions to portray the data using a 
+		bar chart.  
+		
+		Resolved in hn_submissions.py
+	
+	17-3:
+		create unittest testcases to check status code of
+		requests call.
+		
+		Resolved within Projects 2 directory.
+'''
+
+
 import requests
 import pygal
 from pygal.style import LightColorizedStyle as LCS, LightenStyle as LS
