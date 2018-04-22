@@ -16,6 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+import learning_logs.urls
+
+app_name = "learning_logs"
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
+urlpatterns += learning_logs.urls.urlpatterns
