@@ -18,7 +18,6 @@ from django.urls import path
 
 import learning_logs.urls
 
-app_name = "learning_logs"
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
