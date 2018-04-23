@@ -23,6 +23,11 @@
 			<p>
 				{{ post.text|linebreaks }}
 			</p>
+			<p>
+				<a href="{% url 'edit_post' post.id %}">
+					edit
+				</a>
+			</p>
 		</li>
 	{% empty %}
 		<li>

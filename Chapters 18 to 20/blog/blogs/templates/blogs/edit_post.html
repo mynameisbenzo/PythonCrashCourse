@@ -1,0 +1,7 @@
+{% block content %}
+<form action="{% url 'edit_post' post.id %}" method="post">
+	{% csrf_token %}
+	{{ blogpost.as_p }}
+	<button name="submit">Save</button>
+</form>
+{% endblock content %}
