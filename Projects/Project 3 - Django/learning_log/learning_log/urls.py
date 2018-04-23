@@ -16,9 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-import learning_logs.urls
+import learning_logs.urls as learning_logs
+import users.urls as users
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
-urlpatterns += learning_logs.urls.urlpatterns
+
+urlpatterns += learning_logs.urlpatterns
+urlpatterns += users.urlpatterns
