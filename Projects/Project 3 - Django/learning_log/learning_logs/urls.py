@@ -21,4 +21,7 @@ urlpatterns = [
 	
 	# letting users add new topics
 	path('new_topic/$', views.new_topic, name='new_topic'),
+	
+	# letting users enter a new entry
+	path('new_entry/<topic_id>/$', views.new_entry, name='new_entry'),
 ]
