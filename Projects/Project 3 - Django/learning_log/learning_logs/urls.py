@@ -24,4 +24,7 @@ urlpatterns = [
 	
 	# letting users enter a new entry
 	path('new_entry/<topic_id>/$', views.new_entry, name='new_entry'),
+	
+	# allow users to edit entries already in the system
+	path('edit_entry/<entry_id>/$', views.edit_entry, name='edit_entry'),
 ]
