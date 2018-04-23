@@ -18,4 +18,7 @@ urlpatterns = [
 	
 	# detail page for a single topic
 	path('topics/<topic_id>/$', views.topic, name='topic'),
+	
+	# letting users add new topics
+	path('new_topic/$', views.new_topic, name='new_topic'),
 ]

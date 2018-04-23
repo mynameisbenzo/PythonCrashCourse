@@ -1,9 +1,10 @@
-from django import forms
+# from django import forms - DEPRECATED
+from django.forms import ModelForm
 
 from .models import Topic
 
-class TopicForm(froms.ModelForm):
-	class meta:
+class TopicForm(ModelForm):
+	class Meta:
 		model = Topic
 		fields = ['text']
 		labels = {'text':''}
