@@ -1,0 +1,35 @@
+<h1>
+	HELLO!  Welcome to my blog!
+</h1>
+
+{% block content %}
+<p>
+	Blogposts
+</p>
+
+<a href="{% url 'new_post' %}">
+	Add a new post
+</a>
+
+<ul>
+	{% for post in blogposts %}
+		<li>
+			<p>
+				{{ post.date_added|date:'M d, Y H:i' }}
+			</p>
+			<p>
+				{{ post.title|linebreaks }}
+			</p>
+			<p>
+				{{ post.text|linebreaks }}
+			</p>
+		</li>
+	{% empty %}
+		<li>
+			<p>
+				There are no entries yet!
+			</p>
+		</li>
+	{% endfor %}
+</ul>
+{% endblock content %}
