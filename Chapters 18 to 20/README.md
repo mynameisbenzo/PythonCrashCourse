@@ -19,3 +19,18 @@
 # 18-8:
 ### Goal:
 ##### In Pizzeria, add a page to pizzeria that shows the pizza names.  Then display each pizza's topping when a pizza name is clicked.
+# 19-1:
+### Goal:
+##### Create a blog app that allows users to create and edit blog posts.
+# 19-2:
+### Goal:
+##### Create a registration, login, and logout system for the blog project.  Also, display logged-in users name while logged-out/non-users see a register link
+# 19-3:
+### Goal:
+##### Refactor views.py in learning_log/learning_logs by turning code that is used twice into a function
+# 19-4:
+### Goal: Prevent users from adding to another users learning log by checking the current user matches the topic owner
+#####
+# 19-5:
+### Goal: 
+##### In the blog project, connect all posts to a user.  Let all posts be visible but only registered users can post and edit. users can only edit their own posts.
