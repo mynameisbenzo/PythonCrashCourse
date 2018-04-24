@@ -1,5 +1,20 @@
 <h1>
-	HELLO!  Welcome to my blog!
+{% if user.is_authenticated %}
+	Welcome back to my blog, {{ user.username }}!
+	<a href="{% url 'logout' %}">
+		Log Out
+	</a>
+{% else %}
+	Hello and welcome to my blog!
+	<br>
+	<a href="{% url 'register' %}">
+		Register
+	</a>
+	<br>
+	<a href="{% url 'login' %}">
+		Log In
+	</a>
+{% endif %}
 </h1>
 
 {% block content %}

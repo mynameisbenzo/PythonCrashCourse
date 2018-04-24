@@ -17,8 +17,10 @@ from django.contrib import admin
 from django.urls import path
 
 import blogs.urls as blogs
+import users.urls as users
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 urlpatterns += blogs.urlpatterns
+urlpatterns += users.urlpatterns
