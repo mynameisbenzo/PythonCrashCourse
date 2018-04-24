@@ -62,6 +62,9 @@ def new_topic(request):
 def new_entry(request, topic_id):
 	topic = Topic.objects.get(id=topic_id)
 	
+	# make sure the topic belongs to the current user
+	check_owner(topic.owner, request.user)
+	
 	if request.method != 'POST':
 		# no data -> blank form
 		form = EntryForm()
@@ -105,5 +108,5 @@ def edit_entry(request, entry_id):
 	check topic owner
 '''
 def check_owner(owner, user):
-	if topic.owner != request.user:
+	if owner != user:
 		raise Http404
