@@ -29,8 +29,8 @@
 ### Goal:
 ##### Refactor views.py in learning_log/learning_logs by turning code that is used twice into a function
 # 19-4:
-### Goal: Prevent users from adding to another users learning log by checking the current user matches the topic owner
-#####
+### Goal: 
+##### Prevent users from adding to another users learning log by checking the current user matches the topic owner
 # 19-5:
 ### Goal: 
 ##### In the blog project, connect all posts to a user.  Let all posts be visible but only registered users can post and edit. users can only edit their own posts.
