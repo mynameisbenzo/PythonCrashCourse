@@ -1,7 +1,27 @@
+{% extends 'blogs/index.html' %}
+{% load bootstrap3 %}
+
+{% block header %}
+<h2>
+	<a href = "{% url 'edit_post' post.id %}">
+		{{ post.title }}
+	</a>
+</h2>
+{% endblock header %}
+
 {% block content %}
-<form action="{% url 'edit_post' post.id %}" method="post">
+<h3>
+	Edit entry:
+</h3>
+<form action="{% url 'edit_post' post.id %}" method="post" class="form">
 	{% csrf_token %}
-	{{ blogpost.as_p }}
-	<button name="submit">Save</button>
+	{% bootstrap_form blogpost %}
+	
+	{% buttons %}
+	<button name="submit" class="btn btn-primary">
+		Add Entry
+	</button>
+	{% endbuttons %}
+	
 </form>
 {% endblock content %}
