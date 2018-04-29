@@ -1,5 +1,8 @@
 # PythonCrashCourse 
 
+## Hello! My name is Lorenzo Hernandez and awhile ago I remembered I had a Python Crash Course book.  I decided to walk on through all of the book and had a good amount of fun doing it.  Take a look at the blog I am building to get a better look at what I've learned (and am continuing to learn) so far.
+# [Blog](https://lh-django-blog.herokuapp.com/send-email/$)
+
 ## NOTE
 ###### I'm using Python 3.6 throughout these exercises.
 ## Part 1: The Basics
