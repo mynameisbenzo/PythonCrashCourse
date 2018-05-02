@@ -1,3 +1,5 @@
+import re
+
 '''
 	without regex, determine if value is phone number
 '''
@@ -29,3 +31,7 @@ for i in range(len(message)):
 		print('Phone number found: ' + chunk)
 		
 print('Done')
+
+phone_num_regex = re.compile(r"\d{3}-\d{3}-\d{4}")
+mo = phone_num_regex.search("my number is 123-123-1234")
+print("Phone number found: " + mo.group())
