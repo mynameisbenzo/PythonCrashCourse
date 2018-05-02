@@ -38,7 +38,7 @@ print("Phone number found: " + mo.group())
 
 # creating groups with parentheses in a regex
 group_phone_regex = re.compile(r'(\d{3})-(\d{3}-\d{4})')
-mo = group_phone_regex.search("my number is 123-123-1234")
+mo = group_phone_regex.search("my number is 123-123-1234.  My fax is 123-123-1233")
 print(mo.group(1))
 print(mo.group(2))
 print(mo.group(0))
@@ -47,3 +47,15 @@ print(mo.groups())
 area_code, main_num = mo.groups()
 print(area_code)
 print(main_num)
+
+hero_regex = re.compile(r"Batman|Tina Fey")
+mo1 = hero_regex.search("Batman and Tina Fey.")
+print(mo1.group())
+
+mo2 = hero_regex.search("Tina Fey and Batman.")
+print(mo2.group())
+
+bat_regex = re.compile(r"Bat(mobile|man|copter|bat)")
+mo3 = bat_regex.search("Batmobile lost a wheel. Batbat.")
+print(mo3.group())
+print(mo3.group(1))
