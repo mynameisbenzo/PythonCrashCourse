@@ -88,3 +88,11 @@ print(mo9.group())
 
 mo10 = banana_search.search("I think it's ba.")
 print(mo10.group())
+
+# using + to match would find the pattern in a parentheses at least once
+eric_bana_search = re.compile(r"Ba(na)+")
+mo11 = eric_bana_search.search("Hi, I'm Eric Bana.")
+print(mo11.group())
+
+mo12 = eric_bana_search.search("No, you're a Banana.")
+print(mo12.group())
