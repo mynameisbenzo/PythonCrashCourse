@@ -76,3 +76,11 @@ print(mo6.group())
 
 mo7 = optional_phone.search("here's the number without the area code 123-1234")
 print(mo7.group())
+
+# using * to match the repeating occurence of a pattern within a pattern
+banana_search = re.compile(r'ba(na)*')
+mo8 = banana_search.search("I think it's spelled: banananananana")
+print(mo8.group())
+
+mo9 = banana_search.search("No... it's banana")
+print(mo9.group())
