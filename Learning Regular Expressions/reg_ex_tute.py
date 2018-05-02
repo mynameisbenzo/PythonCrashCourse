@@ -55,7 +55,24 @@ print(mo1.group())
 mo2 = hero_regex.search("Tina Fey and Batman.")
 print(mo2.group())
 
+# | is a pipe which allows regex to take the pattern outside and match it
+# with any item inside the parentheses separated by the |
 bat_regex = re.compile(r"Bat(mobile|man|copter|bat)")
 mo3 = bat_regex.search("Batmobile lost a wheel. Batbat.")
 print(mo3.group())
 print(mo3.group(1))
+
+# using a question mark can make a piece of the regex optional
+bat_regex_1 = re.compile(r"Bat(wo)?man")
+mo4 = bat_regex_1.search("Batman is a bat and a man.")
+print(mo4.group())
+
+mo5 = bat_regex_1.search("Batwoman is basically Batman but a woman.")
+print(mo5.group())
+
+optional_phone = re.compile(r"(\d{3}-)?\d{3}-\d{4}")
+mo6 = optional_phone.search("my full number is 123-123-1234")
+print(mo6.group())
+
+mo7 = optional_phone.search("here's the number without the area code 123-1234")
+print(mo7.group())
